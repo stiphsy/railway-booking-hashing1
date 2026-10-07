@@ -1,0 +1,65 @@
+INPUT: 23 43 13 33 53 63 73
+
+TABLE SIZE = 10
+h(k) = k % 10
+REQUESTED LOAD FACTOR = 0.70
+
+LINEAR PROBING
+0 EMPTY
+1 EMPTY
+2 EMPTY
+3 23
+4 43
+5 13
+6 33
+7 53
+8 63
+9 73
+
+Search:
+53 Found at 7, 5 probes
+73 Found at 9, 7 probes
+83 Not Found, 8 probes
+
+QUADRATIC PROBING
+0 EMPTY
+1 EMPTY
+2 33
+3 23
+4 43
+5 EMPTY
+6 EMPTY
+7 13
+8 63
+9 53
+
+73 could not be inserted because the probe sequence repeated.
+Actual occupancy = 0.60 (60%).
+
+Search:
+53 Found at 9, 5 probes
+73 Not Found, 10 probes
+83 Not Found, 10 probes
+
+DOUBLE HASHING
+0 63
+1 EMPTY
+2 EMPTY
+3 23
+4 13
+5 33
+6 53
+7 73
+8 EMPTY
+9 43
+
+h1(k)=k%10
+h2(k)=7-(k%7)
+
+Search:
+53 Found at 6, 2 probes
+73 Found at 7, 2 probes
+83 Not Found, 6 probes
+
+FINAL:
+Double hashing gives the best result for this collision-heavy input.
